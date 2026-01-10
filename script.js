@@ -1,117 +1,397 @@
-// Go from Welcome Page to Main Page
-function goToHome() {
-  const welcomePage = document.getElementById("welcomePage");
-  const mainPage = document.getElementById("mainPage");
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  overflow-x:hidden;
+}
+
+#er{
+  border:2px solid green;
+  border-radius:50%;
+  width:90px;
+}
+img{
+  max-width:100%;
+  height:auto;
+}
+
+
+.page{
+  width:100%;
+  height:100vh;
+  position:absolute;
+  top:0;
+  left:0;
+  transition:transform 0.8s ease;
+}
+
+/* WELCOME PAGE */
+#welcomePage{
+  background:url("images/welcome-bg.jpg") center/cover no-repeat;
+}
+
+.moving-text{
+  position:relative;
+  top:10px;
+  white-space:nowrap;
+  animation:move 15s linear infinite;
+  color:white;
+  font-weight:bold;
+ 
+  background-color: #747fc0;
+  width:1500px;;
+  border:2px solid black;
+  text-align: center;
+  border-radius: 2%;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes move{
+  from{ left:100%; }
+  to{ left:-100%; }
+}
+.welcome-box{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(255, 255, 255, 0.895);
+  padding:30px;
+  text-align:center;
+  border-radius:12px;
   
-  // Hide welcome page by sliding up
-  welcomePage.classList.add("hidden");
-  
-  // Show main page by sliding up from bottom
-  mainPage.classList.add("active");
-  
-  // Initialize with breakfast menu
-  const breakfastBtn = document.querySelector('.navbar2 button');
-  if (breakfastBtn) {
-    showMeal('breakfast', breakfastBtn);
+}
+.welcome-box{
+  width:90%;
+  max-width:350px;
+}
+.moving-text{
+  width:100%;
+  font-size:0.8rem;
+  height:auto;
+  padding:6px;
+}
+@media (max-width:600px){
+
+  h1{
+    font-size:1.2rem;
+  }
+
+  .box1{
+    width:100%;
+    font-size:0.8rem;
+  }
+
+  .nav-right button{
+    width:60px;
+    font-size:0.8rem;
+  }
+
+  .edf{
+    flex-direction:column;
+    gap:8px;
+  }
+}
+@media (max-width:900px){
+  .edf{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  #same{
+    max-width:200px;
   }
 }
 
-// Profile overlay functions
-function openProfile() {
-  document.getElementById("profileOverlay").classList.add("show");
+
+
+.logo-row{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  align-items:center;
 }
 
-function closeProfile() {
-  document.getElementById("profileOverlay").classList.remove("show");
+.logo-row img{
+  width:80px;
+}
+.bg-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-// Meals data
-const mealsData = {
-  breakfast: [
-    "2 Roti + 1 Boiled Egg + Vegetable/Dal",
-    "Vegetable Khichuri (1 bowl)",
-    "2 Bread + 1 Fried Egg (low oil) + 1 Banana",
-    "Chira + Banana + Jaggery/Sugar",
-    "Rice (small portion) + Dal + Mixed Vegetables"
-  ],
-  lunch: [
-    "Rice + Chicken Curry (small portion) + Mixed Vegetables",
-    "Rice + Fish Curry (small portion) + Dal",
-    "Vegetable Khichuri + Salad",
-    "Rice + Egg Curry + Mixed Vegetables",
-    "Vegetable Pulao + Dal + Salad"
-  ],
-  snacks: [
-    "1 Banana + Roasted Chana (small portion)",
-    "1 Cup Yogurt + 1 Fruit (apple/banana)",
-    "1 Boiled Egg + 1 Small Apple",
-    "1 Small Sandwich (vegetable or egg)",
-    "Chira + Jaggery + Milk (small portion)"
-  ],
-  dinner: [
-    "Rice + Chicken Curry (small portion) + Mixed Vegetables",
-    "Rice + Fish Curry (small portion) + Dal",
-    "Vegetable Khichuri + Salad",
-    "Rice + Egg Curry + Mixed Vegetables",
-    "Vegetable Pulao + Dal + Salad"
-  ]
-};
+h1{
+  margin-top:0.5rem;
+}
+.location{
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  font-size: 1rem;
+  gap:0.2rem;
+  margin-top: 0.3rem;
 
-// Show meal items in interface
-function showMeal(meal, btn) {
-  // Remove active class from all buttons
-  document.querySelectorAll(".navbar2 button").forEach(b => b.classList.remove("active"));
-  
-  // Add active class to clicked button
-  btn.classList.add("active");
-
-  const mealArea = document.getElementById("mealArea");
-  
-  // Clear previous content
-  mealArea.innerHTML = `<h2 style="margin-bottom:15px;">${btn.textContent}</h2>`;
-
-  // Add meal items
-  mealsData[meal].forEach(item => {
-    const div = document.createElement("div");
-    div.className = "meal-item";
-    div.innerHTML = `<span>${item}</span> <button onclick="showBkash()">Add to Cart</button>`;
-    mealArea.appendChild(div);
-  });
 }
 
-// Show BKASH popup
-function showBkash() {
-  document.getElementById("bkashPopup").style.display = "flex";
+.welcome-box button{
+  padding:10px 25px;
+  border:none;
+  background:#0d6efd;
+  color:#fff;
+  border-radius:6px;
+  cursor:pointer;
+  margin-top: 2rem;
+  border:2px solid black;
+  font-weight: 800;
 }
 
-// Hide BKASH popup
-function hideBkash() {
-  document.getElementById("bkashPopup").style.display = "none";
+/* MAIN PAGE */
+
+#mainPage{
+  transform:translateY(100%);
+  background:url("web.jpg") center/cover no-repeat;
+  background-size:cover;
 }
 
-// Close popup when clicking outside
-document.getElementById("bkashPopup").addEventListener("click", function(event) {
-  if (event.target === this) {
-    hideBkash();
-  }
-});
+/* NAVBAR 1 */
+.navbar1{
+  background:#747fc0;
+  color:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px;
+  flex-wrap:wrap;
+  gap:10px;
+}
 
-// Initialize page when loaded
-document.addEventListener("DOMContentLoaded", function() {
-  // Set initial state
-  const welcomePage = document.getElementById("welcomePage");
-  const mainPage = document.getElementById("mainPage");
+#log{
+  background-color: rgb(92, 49, 201);
+  height:2rem;
+  width:4rem;
+  border:2px solid white;
+  border-radius: 10%;
+
+ color: #fff;
+  font-weight: bold;
+cursor: pointer;
+}
+#we{
+
+  background-color: transparent;
+  height:2rem;
+  width:4rem;
+  border:2px solid white;
+  border-radius: 10%;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+
+}
+#sd{
+  border:2px solid green;
+  border-radius:50%;
+  height:65px;
+  width:65px;
+  margin-left: 1rem;
+}
+#s{
+  margin-top: 1rem;
+  margin-bottom:0.2rem;
+  font-size: small;
+}
+
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.nav-left h2{
+  font-size:1rem;
+}
+
+
+.nav-left img{
+  width:40px;
+}
+#e{
+  font-weight: 700;
+}
+#j{
+  color:rgb(2, 67, 33)
+}
+.box1{
+  background-color:transparent;
+  text-align: center;
+  width:25rem;
+  height:3rem;
+  display: flex;
+  align-items: center;
+  border-radius: 2%;
+  justify-content: center;
+  font-weight: 600;
+  border:2px solid white;
+}
+/* PROFILE */
+#profileOverlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+#profileOverlay.show{
+  display:flex;
+}
+
+.profile-box{
+  width:300px;
+  background:rgba(255,255,255,0.3);
+  padding:20px;
+  border-radius:12px;
+  backdrop-filter:blur(10px);
+}
+
+.profile-header{
+  display:flex;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.profile-header img{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+}
+
+.underline{
+  border-bottom:1px solid #000;
+  margin-bottom:6px;
+}
+
+.menu-btn{
+  width:100%;
+  padding:8px;
+  margin:4px 0;
+}
+
+.wallet{
+  display:flex;
+  justify-content:space-between;
+  background:#fff;
+  padding:8px;
+  margin:8px 0;
+}
+
+.logout{
+  width:100%;
+  background:red;
+  color:#fff;
+  padding:8px;
+  border:none;
+}
+
+/* NAVBAR 2 */
+.navbar2{
+  background:#dee9ff;
+  padding:10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+#same{
+  height:auto;
+  width:100%;
+  max-width:180px;
+  padding:10px;
+  color:white;
+  font-weight:600;
+  background-color:#747fc0;
+  border:2px solid black;
+  cursor:pointer;
+  margin-right:1rem;;
+}
+#m3{
+  text-align: center;
+  margin-bottom:1rem;
+}
+.edf{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 4px;
   
-  // Ensure welcome page is visible and main page is hidden
-  welcomePage.classList.remove("hidden");
-  welcomePage.style.transform = "translateY(0)";
-  
-  mainPage.classList.remove("active");
-  mainPage.style.transform = "translateY(100%)";
-  
-  // Set default meal to breakfast
-  const breakfastBtn = document.querySelector('.navbar2 button');
-  if (breakfastBtn) {
-    showMeal('breakfast', breakfastBtn);
-  }
-});
+}
+.navbar2 button.active{
+  background:#fff;
+  color:#0d6efd;
+}
+
+/* MEAL AREA */
+#mealArea{
+  min-height:calc(100vh - 150px);
+  padding:15px;
+  overflow:auto;
+  background-color:rgb(70, 78, 173);
+  color:white;
+}
+
+.underline{
+  font-weight: bolder;
+}
+.meal-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(0,0,0,0.4);
+  padding:10px;
+  margin-bottom:5px;
+  border-radius:6px;
+}
+#mealArea {
+  background-color: rgb(70, 78, 173);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.meal-item button{
+
+  background:#0d6efd;
+  border:none;
+  padding:6px 12px;
+  color:#fff;
+  cursor:pointer;
+  border-radius:4px;
+}
+.profile-box{
+  width:90%;
+  max-width:320px;
+}
+/* BKASH */
+#bkashPopup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+#bkashPopup img{
+  width:280px;
+}

@@ -10,83 +10,83 @@
 </head>
 <body>
 
-<div id="app">
+<!-- WELCOME PAGE -->
+ <div class="edx">
+ <img src="web.jpg" class="bg-img">
+<div id="welcomePage" class="page">
+  <div class="moving-text">Welcome to Campus NutriCare Meal Service. Our vision To ensure every student has access to nutritious, affordable meals that will support their academic success, health, and well-being</div>
 
-  <!-- WELCOME PAGE -->
-  <div class="edx page" id="welcomePage">
-    <img src="web.jpg" class="bg-img">
-
-    <div class="moving-text">
-      Welcome to Campus NutriCare Meal Service. Our vision To ensure every student has access to nutritious, affordable meals that will support their academic success, health, and well-being
+  <div class="welcome-box">
+    <div class="logo-row">
+      <img id="eq" src="cu logo.png">
+      <img id="er" src="ert.jpg">
     </div>
 
-    <div class="welcome-box">
-      <div class="logo-row">
-        <img id="eq" src="cu logo.png">
-        <img id="er" src="ert.jpg">
-      </div>
+    <h1>Campus NutriCare Meal Service</1>
 
-      <h1>Campus NutriCare Meal Service</h1>
-
-      <div class="location">
-        <i class="fa-solid fa-location-dot"></i>
-        <h3>University of Chittagong</h3>
-      </div>
-
-      <button onclick="goToHome()">Welcome</button>
-      <p id="s">Stay With Us</p>
-
-      <a href="https://www.facebook.com/share/1BhDMed32c/">
-        <i class="fa-brands fa-square-facebook"></i>
-      </a>
+    <div class="location">
+      <i class="fa-solid fa-location-dot"></i>
+      <h3>University of Chittagong</h3>
+    
     </div>
+
+    <button onclick="goToHome()">Welcome</button>
+    
+   
+    <br>
+    <p id="s"> Stay With Us</p>
+    
+    <a href="https://www.facebook.com/share/1BhDMed32c/"><i class="fa-brands fa-square-facebook"></i></a>
   </div>
-
-  <!-- MAIN PAGE -->
-  <div id="mainPage" class="page">
-
-    <div class="navbar1">
-      <div class="nav-left">
-        <img id="sd" src="ert.jpg">
-        <h2>Campus NutriCare Meal Service</h2>
-      </div>
-
-      <div class="box1">
-        <p>Low-Cost, Nutritious Meals for Every Student</p>
-      </div>
-
-      <div class="nav-right">
-        <button id="log" onclick="openProfile()">Log in</button>
-        <button id="we">Eng</button>
-      </div>
-    </div>
-
-    <div class="navbar2">
-      <i id="j" class="fa-solid fa-circle-check"></i>
-      <p id="e">Select Your Meal</p>
-
-      <div class="edf">
-        <button id="same" class="active" onclick="showMeal('breakfast', this)">Breakfast BDT 30Tk</button>
-        <button id="same" onclick="showMeal('lunch', this)">Lunch BDT 50Tk</button>
-        <button id="same" onclick="showMeal('snacks', this)">Afternoon Snacks BDT 25Tk</button>
-        <button id="same" onclick="showMeal('dinner', this)">Dinner BDT 45Tk</button>
-      </div>
-    </div>
-
-    <div id="mealArea"></div>
-  </div>
-
+</div>
 </div>
 
-<!-- PROFILE -->
+<!-- MAIN PAGE -->
+<div id="mainPage" class="page">
+
+  <!-- NAVBAR 1 -->
+  <div class="navbar1">
+    <div class="nav-left">
+      <img id="sd" src="ert.jpg">
+      <h2>Campus NutriCare Meal Service</h2>
+    </div>
+          <div class="box1">
+            <p>Low-Cost, Nutritious Meals for Every Student</p>
+          </div>
+    <div class="nav-right">
+      <button id="log" onclick="openProfile()">Log in</button>
+      <button id="we">Eng</button>
+    </div>
+  </div>
+
+  <!-- NAVBAR 2 -->
+  <div class="navbar2">
+    <i id="j"class="fa-solid fa-circle-check"></i>
+    <p id="e"> Select Your Meal</p>
+<div class="edf">
+    <button id="same" class="active" onclick="showMeal('breakfast', this)">Breakfast BDT 30Tk</button>
+    <button id="same" onclick="showMeal('lunch', this)">Lunch BDT 50Tk</button>
+    <button id="same" onclick="showMeal('snacks', this)">Afternoon Snacks BDT 25Tk</button>
+    <button id="same" onclick="showMeal('dinner', this)">Dinner BDT 45Tk</button>
+  </div>
+  </div>
+
+  <!-- MEAL AREA -->
+  <div id="mealArea">
+    <!-- Meal menu will appear here -->
+  </div>
+</div>
+
+<!-- PROFILE OVERLAY -->
 <div id="profileOverlay" onclick="closeProfile()">
   <div class="profile-box" onclick="event.stopPropagation()">
+
     <h3 id="m3">Customer Profile</h3>
 
     <div class="profile-header">
       <img src="svb.jpg">
       <div>
-        <div class="underline">Sabbir Ahmmed</div>
+        <div class="underline">Sabbir ahmmed</div>
         <div class="underline">Shahjalal Hall</div>
       </div>
     </div>
@@ -104,7 +104,7 @@
   </div>
 </div>
 
-<!-- BKASH -->
+<!-- BKASH POPUP -->
 <div id="bkashPopup" onclick="hideBkash()">
   <img src="payment 8.jpg">
 </div>
